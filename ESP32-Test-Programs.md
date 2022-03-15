@@ -1,9 +1,9 @@
-# This document contains the basic programs I created for the sake of testing the ESP32 and getting familiar working with hardware
+# Test Programs - Blinking LED & PushButton Controlled LED
+This document contains the basic programs I created for the sake of testing the ESP32 and getting familiar working with hardware
 
 
-# Basic Blinking LED
-A basic program to figure out basic funtionality of the ESP32 (made on wokwi.com)
 
+# Blinking LED
 
 ![image](https://user-images.githubusercontent.com/101617018/158307483-29a3b5f9-1893-4aa4-b81d-ec9ce512d9ee.png)
  
@@ -13,7 +13,10 @@ A basic program to figure out basic funtionality of the ESP32 (made on wokwi.com
 <br/>
 <br/>
 <br/>
-Compounding onto this basic program, we can test input functionality by use of a push-button. 
+
+# PushButton Controlled LED
+
+Compounding onto the previous program, we can test input functionality by use of a push-button. 
 The desired functionality is that the light will only be enabled so long as the button is pressed,
 and turns off as soon as the button is released.
 <br/>
