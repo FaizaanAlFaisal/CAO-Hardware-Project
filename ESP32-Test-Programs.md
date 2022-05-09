@@ -26,5 +26,21 @@ and turns off as soon as the button is released.
 
 
 <br/>
-This will be replicated on physical hardware and committed to this same page when I have purchased all the equipment needed for my 
-final project.
+
+
+# Hardware Implementation of Blinking LED
+
+PlatformIO was used to upload the same code onto an ESP-32 device. The following is what the setup of the hardware looked like:
+
+<br/>
+
+![20220510_000532](https://user-images.githubusercontent.com/101617018/167481894-6c70508e-958a-482d-a547-eaf26c1e123f.jpg)
+
+<br/>
+
+And below is a video demo:
+
+<br/>
+
+https://user-images.githubusercontent.com/101617018/167482000-31ca881b-a92a-4dd3-acf2-f368a1a526f3.mp4
+
