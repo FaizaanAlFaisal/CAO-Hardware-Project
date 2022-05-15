@@ -86,7 +86,9 @@ void setup() {
 
 
 char displayData[128]; //use to store data being currently displayed, used to check if there has been updates on firebase
-int checkDelay = 5000; //check firebase updates after checkDelay milliseconds
+int intensity = 0; //manage LED intensity on matrix, 0 to 15, 0 is lowest
+int scrollSpeed = 150; //manage speed of text scrolling, 0 to inf, but restricted to 100-500, 100 being fastest
+int checkDelay = 3000; //check firebase updates after checkDelay milliseconds
 unsigned long long timeSinceLastCheck = 0; 
 void loop() {
 
@@ -94,15 +96,24 @@ void loop() {
 	{ //confirm that firebase is ready to read from + it is time to check updates
 		timeSinceLastCheck = millis(); //update timeSinceLastCheck
 
-		if(Firebase.RTDB.getString(&firebaseData, "/readTest")) { //when triggered, check for updates in firebase data
-			int resultCmp = strcmp(displayData, firebaseData.stringData().c_str()); //compare previous data to new data
-			if (resultCmp != 0) //if new data is different (0 if equal), then update the led grid
-			{
+		if(Firebase.RTDB.getBool(&firebaseData, "/displayData/isBeingDisplayed")) {
+			if (!firebaseData.boolData()) { //if information on firebase is currently not being displayed, then:
+
+				Firebase.RTDB.getString(&firebaseData, "/displayData/message");
 				strcpy(displayData, firebaseData.stringData().c_str()); //convert firebase info to a C-compatible string
+				Firebase.RTDB.getInt(&firebaseData, "/displayData/scrollSpeed");
+				scrollSpeed = firebaseData.intData();
+				Firebase.RTDB.getInt(&firebaseData, "/displayData/intensity");
+				intensity = firebaseData.intData();
+
 				Display.displayClear(); //clear original display
 				Serial.print("Data Recevied: ");
 				Serial.println(displayData);
-				Display.displayScroll(displayData, PA_RIGHT, PA_SCROLL_LEFT, 100); //set display info for led grid
+				Display.setIntensity(intensity);
+				Display.displayScroll(displayData, PA_RIGHT, PA_SCROLL_LEFT, scrollSpeed); //set display info for led grid
+
+				Firebase.RTDB.setBool(&firebaseData, "/displayData/isBeingDisplayed", true); 
+				//set "isBeingDisplayed" to true, so this check does not occur until a change is made to firebase RTDB
 			}
 		}
 	}
