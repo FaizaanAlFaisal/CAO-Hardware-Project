@@ -33,17 +33,24 @@
                     placeholder="Enter Message To Display on LED-Matrix" required maxlength="128">
             </div>
         </div><br />
-
         <div class="row">
             <div class="form-group col-6">
-                <label>LED Intensity (0 to 15, 0 is lowest)</label>
-                <input type="number" class="form-control my-2" placeholder="Enter LED Intensity" min="0" max="15"
-                    id="intensity" required>
+                <label>LED Intensity</label>
+                <select class="form-control my-2" placeholder="Select LED Intensity" id="intensity" required>
+                    <option value="" disabled selected>Select desired LED Intensity</option>
+                    <option>Low</option>
+                    <option>Medium</option>
+                    <option>High</option>
+                </select>
             </div>
             <div class="form-group col-6">
-                <label>Scroll Speed (100 to 500, 100 is lowest)</label>
-                <input type="number" class="form-control my-2" placeholder="Enter Scroll Speed" min="100" max="500"
-                    id="scrollSpeed" required>
+                <label>Text Scrolling Speed</label>
+                <select class="form-control my-2" placeholder="Select Scroll Speed" id="scrollSpeed" required>
+                    <option value="" disabled selected>Select Desired Speed</option>
+                    <option>Slow</option>
+                    <option>Moderate</option>
+                    <option>Fast</option>
+                </select>
             </div>
         </div><br />
 
