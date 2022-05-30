@@ -33,6 +33,11 @@ $(function(){
     }
 
     $('#submitBtn').on("click", function (event) {
+        if($("input#message").val() == "")
+        {
+            alert("Please fill out all fields!");
+            return false;
+        }
         event.preventDefault(); //prevent form from submitting, stay on same page
 
         messageRef.remove();
