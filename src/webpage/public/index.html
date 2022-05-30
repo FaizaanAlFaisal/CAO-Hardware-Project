@@ -30,26 +30,27 @@
             <div class="form-group col-12">
                 <label>Message To Display (128 Characters Max.)</label>
                 <input type="text" class="form-control my-2" id="message"
-                    placeholder="Enter Message To Display on LED-Matrix" required maxlength="128">
+                    placeholder="Enter Message To Display on LED-Matrix" maxlength="128">
             </div>
         </div><br />
+
         <div class="row">
             <div class="form-group col-6">
-                <label>LED Intensity</label>
+                <label>Select LED Intensity</label>
                 <select class="form-control my-2" placeholder="Select LED Intensity" id="intensity" required>
-                    <option value="" disabled selected>Select desired LED Intensity</option>
-                    <option>Low</option>
-                    <option>Medium</option>
-                    <option>High</option>
+                    <option value="" disabled>Select Desired LED Intensity</option>
+                    <option value="Low" selected>Low</option>
+                    <option value="Medium">Medium</option>
+                    <option value="High">High</option>
                 </select>
             </div>
             <div class="form-group col-6">
-                <label>Text Scrolling Speed</label>
+                <label>Select Text Scrolling Speed</label>
                 <select class="form-control my-2" placeholder="Select Scroll Speed" id="scrollSpeed" required>
-                    <option value="" disabled selected>Select Desired Speed</option>
-                    <option>Slow</option>
-                    <option>Moderate</option>
-                    <option>Fast</option>
+                    <option value="" disabled>Select Desired Scrolling Speed</option>
+                    <option value="Slow">Slow</option>
+                    <option value="Moderate">Moderate</option>
+                    <option value="Fast" selected>Fast</option>
                 </select>
             </div>
         </div><br />
@@ -57,10 +58,15 @@
         <div class="row">
             <button type="submit" class="btn btn-primary col-4 mx-auto my-1" id="submitBtn" value="Submit">Display on LED-Matrix</button>
         </div>
+
         <div class="row">
             <button type="submit" class="btn btn-secondary mx-auto col-4" id="templateBtn" value="addTemplate">Add Template</button>
         </div>
+    
     </form><br /><br />
+    
+    
+    
     <h1 class="display-5 text-light text-center">Template Messages</h1><br />
 
     <table class="table table-bordered table-dark table-striped table-hover align-middle text-center templatesTable">
@@ -73,11 +79,9 @@
             </tr>
         </thead>
         <tbody>
-
         </tbody>
     </table>
-
-
+    
 
 
 
